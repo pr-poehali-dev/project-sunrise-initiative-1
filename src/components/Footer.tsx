@@ -1,31 +1,25 @@
+import Icon from "@/components/ui/icon"
+
 export function Footer() {
   const footerLinks = {
-    "Возможности": ["Планирование", "Разработка", "Аналитика", "Запросы клиентов", "Orbit Asks", "Безопасность", "Мобильное приложение"],
-    "Продукт": ["Тарифы", "Методология", "Интеграции", "История изменений", "Документация", "Скачать", "Перейти на Orbit"],
-    "Компания": ["О нас", "Клиенты", "Карьера", "Новости", "README", "Качество", "Бренд"],
-    "Ресурсы": ["Разработчикам", "Статус", "Стартапам", "Сообщить об уязвимости", "DPA", "Конфиденциальность", "Условия"],
-    "Связаться": ["Контакты", "Сообщество", "X (Twitter)", "GitHub", "YouTube"],
+    "Возможности": ["Учёт расходов", "Планирование бюджета", "Аналитика", "Умные подсказки", "Цели накопления", "Семейный доступ", "Виджеты iOS"],
+    "Продукт": ["Тарифы", "Скачать приложение", "Обновления", "Документация", "Безопасность данных"],
+    "Компания": ["О нас", "Блог", "Карьера", "Пресса", "Контакты"],
+    "Поддержка": ["Центр помощи", "Сообщество", "Обратная связь", "Конфиденциальность", "Условия использования"],
   }
 
   return (
     <footer className="border-t border-zinc-800 py-16 px-6" style={{ backgroundColor: "#09090B" }}>
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
-          {/* Logo */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
-            <svg width="20" height="20" viewBox="0 0 100 100" fill="none" className="text-white">
-              <path
-                d="M20 30 L50 10 L80 30 L80 70 L50 90 L20 70 Z"
-                fill="currentColor"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-              <path d="M50 10 L50 50 L20 30" fill="#09090B" />
-              <path d="M50 50 L80 70 L50 90" fill="#09090B" />
-            </svg>
+            <div className="flex items-center gap-2 mb-4">
+              <Icon name="Wallet" size={20} className="text-emerald-400" />
+              <span className="text-white font-semibold">Finflow</span>
+            </div>
+            <p className="text-zinc-500 text-sm">Финансовый трекер для осознанных решений.</p>
           </div>
 
-          {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h3 className="text-white font-medium text-sm mb-4">{category}</h3>
@@ -40,6 +34,21 @@ export function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-zinc-600 text-sm">© 2026 Finflow. Все права защищены.</p>
+          <div className="flex items-center gap-4">
+            <a href="#" className="text-zinc-500 hover:text-zinc-300 transition-colors">
+              <Icon name="Twitter" size={18} />
+            </a>
+            <a href="#" className="text-zinc-500 hover:text-zinc-300 transition-colors">
+              <Icon name="Instagram" size={18} />
+            </a>
+            <a href="#" className="text-zinc-500 hover:text-zinc-300 transition-colors">
+              <Icon name="Send" size={18} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

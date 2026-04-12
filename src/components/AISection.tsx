@@ -1,13 +1,14 @@
 import { motion } from "framer-motion"
-import { ChevronRight, Check, Paperclip, Globe, Lightbulb } from "lucide-react"
+import { ChevronRight, Check } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
-const agents = [
-  { name: "Cursor", isAgent: true, selected: true, icon: "◇" },
-  { name: "GitHub Copilot", isAgent: true, selected: false, icon: "◉" },
-  { name: "Sentry", isAgent: true, selected: false, icon: "◈" },
-  { name: "Leela", isAgent: false, selected: false, icon: "○" },
-  { name: "Codex", isAgent: true, selected: false, icon: "◎" },
-  { name: "Conor", isAgent: false, selected: false, icon: "○" },
+const categories = [
+  { name: "🍔 Еда и кафе", amount: "−12 400 ₽", selected: true, icon: "◇" },
+  { name: "🏠 Жильё и ЖКХ", amount: "−28 000 ₽", selected: false, icon: "◉" },
+  { name: "🚗 Транспорт", amount: "−5 600 ₽", selected: false, icon: "◈" },
+  { name: "🎮 Развлечения", amount: "−3 200 ₽", selected: false, icon: "○" },
+  { name: "🛒 Продукты", amount: "−18 900 ₽", selected: false, icon: "◎" },
+  { name: "💊 Здоровье", amount: "−2 100 ₽", selected: false, icon: "○" },
 ]
 
 export function AISection() {
@@ -22,7 +23,6 @@ export function AISection() {
       />
       <div className="w-full flex justify-center px-6">
         <div className="w-full max-w-5xl">
-          {/* Section label */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -30,12 +30,11 @@ export function AISection() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-2 mb-6"
           >
-            <div className="w-2 h-2 rounded-full bg-blue-500" />
-            <span className="text-zinc-400 text-sm">Искусственный интеллект</span>
+            <div className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="text-zinc-400 text-sm">Умная категоризация</span>
             <ChevronRight className="w-4 h-4 text-zinc-500" />
           </motion.div>
 
-          {/* Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,10 +48,9 @@ export function AISection() {
               lineHeight: 1.1,
             }}
           >
-            Разработка с ИИ-помощником
+            ИИ знает, куда ушли деньги
           </motion.h2>
 
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,11 +58,10 @@ export function AISection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-zinc-400 max-w-md mb-8"
           >
-            <span className="text-white font-medium">Orbit для агентов.</span> Выбирайте из множества ИИ-агентов и
-            делегируйте задачи: от генерации кода до других технических задач.
+            <span className="text-white font-medium">Автоматическая категоризация.</span> ИИ анализирует ваши траты
+            и распределяет их по категориям — никакого ручного ввода.
           </motion.p>
 
-          {/* Learn more button */}
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,11 +69,10 @@ export function AISection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="px-5 py-2.5 bg-zinc-800 text-zinc-300 rounded-lg border border-zinc-700 hover:bg-zinc-700 transition-colors text-sm flex items-center gap-2 mb-16"
           >
-            Подробнее
+            Как это работает
             <ChevronRight className="w-4 h-4" />
           </motion.button>
 
-          {/* Agent dropdown mockup */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -102,7 +98,6 @@ export function AISection() {
                   position: "relative",
                 }}
               >
-                {/* Glass overlay effect */}
                 <div
                   style={{
                     border: "1px solid rgba(66, 66, 66, 0.5)",
@@ -133,26 +128,24 @@ export function AISection() {
                   }}
                 />
 
-                {/* Input field */}
                 <div className="bg-zinc-800/50 border border-zinc-700 rounded-t-xl px-5 py-4">
-                  <span className="text-zinc-500 italic">Назначить...</span>
+                  <span className="text-zinc-500 italic">Выберите категорию расхода...</span>
                 </div>
 
-                {/* Dropdown options */}
                 <div className="bg-zinc-900/80 border border-t-0 border-zinc-700 rounded-b-xl py-1">
-                  {agents.map((agent, index) => (
+                  {categories.map((cat, index) => (
                     <div
-                      key={agent.name}
+                      key={cat.name}
                       style={
-                        agent.selected
+                        cat.selected
                           ? {
                               transform: "scale(1.04) rotateX(17deg)",
-                              background: "linear-gradient(#343434 0%, #2d2d2d 100%)",
+                              background: "linear-gradient(#1a3a2a 0%, #162d22 100%)",
                               borderRadius: "6px",
                               height: "48px",
                               position: "relative",
                               boxShadow:
-                                "inset 0 -2.75px 4.75px rgba(255, 255, 255, 0.14), inset 0 -0.752px 0.752px rgba(255, 255, 255, 0.1), 0 54px 73px 3px rgba(0, 0, 0, 0.5)",
+                                "inset 0 -2.75px 4.75px rgba(16, 185, 129, 0.14), inset 0 -0.752px 0.752px rgba(16, 185, 129, 0.1), 0 54px 73px 3px rgba(0, 0, 0, 0.5)",
                               zIndex: 20,
                               marginLeft: "-12px",
                               marginRight: "-12px",
@@ -172,15 +165,16 @@ export function AISection() {
                         }}
                       >
                         <div className="flex items-center gap-3">
-                          <span className="text-zinc-400 text-lg">{agent.icon}</span>
-                          <span className={agent.selected ? "text-white font-medium" : "text-zinc-300"}>
-                            {agent.name}
+                          <span className={cat.selected ? "text-white font-medium" : "text-zinc-300"}>
+                            {cat.name}
                           </span>
-                          {agent.isAgent && (
-                            <span className="text-xs bg-zinc-700 text-zinc-400 px-2 py-0.5 rounded">Агент</span>
-                          )}
                         </div>
-                        {agent.selected && <Check className="w-4 h-4 text-zinc-400" />}
+                        <div className="flex items-center gap-2">
+                          <span className={cat.selected ? "text-emerald-400 text-sm font-medium" : "text-zinc-500 text-sm"}>
+                            {cat.amount}
+                          </span>
+                          {cat.selected && <Check className="w-4 h-4 text-emerald-400" />}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -189,7 +183,6 @@ export function AISection() {
             </div>
           </motion.div>
 
-          {/* Bottom divider with two columns */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -198,135 +191,42 @@ export function AISection() {
             className="mt-16"
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
-              {/* Left column */}
               <div className="border-t border-r border-b border-zinc-800/60 pt-12 pr-12 pb-16">
-                <h3 className="text-zinc-200 font-medium text-xl mb-3">Автопилот для продукта</h3>
+                <h3 className="text-zinc-200 font-medium text-xl mb-3">Умные подсказки</h3>
                 <p className="text-zinc-500 text-base mb-8">
-                  Оптимизируйте рабочие процессы с ИИ-ассистентом для рутинных и ручных задач.
+                  ИИ подмечает аномалии в тратах и подсказывает, где можно сэкономить — в среднем до 15% бюджета в месяц.
                 </p>
 
-                {/* Triage Intelligence Card */}
-                <div className="bg-zinc-900/30 border border-zinc-800/60 rounded-xl p-5">
-                  <div className="flex items-center gap-2 mb-5">
-                    <svg className="w-4 h-4 text-zinc-500" viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M8 0L9.5 5.5L15 7L9.5 8.5L8 14L6.5 8.5L1 7L6.5 5.5L8 0Z" />
-                    </svg>
-                    <span className="text-zinc-500 text-sm">
-                      Умная <span className="text-zinc-300">сортировка</span>
-                    </span>
-                  </div>
-
-                  {/* Suggestions Row */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-zinc-600 text-sm w-20">Рекомендации</span>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="flex items-center gap-1.5 rounded-md px-2 py-1 text-sm"
-                        style={{ background: "#7170ff" }}
-                      >
-                        <span className="w-4 h-4 bg-white/30 rounded-full" />
-                        <span className="text-white">nan</span>
-                      </span>
-                      <span className="flex items-center gap-1.5 bg-zinc-800/30 rounded-md px-2 py-1 text-sm text-zinc-600">
-                        <span className="w-3 h-3 border border-zinc-700 rounded" />
-                        Рефакторинг приложения
-                      </span>
-                      <span className="flex items-center gap-1.5 text-sm text-zinc-700">
-                        <span className="w-2 h-2 bg-zinc-600 rounded-full" />
-                        Slack
-                      </span>
+                <div className="bg-zinc-900/60 rounded-xl border border-zinc-800/50 p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Icon name="Lightbulb" size={16} className="text-amber-400" />
                     </div>
-                  </div>
-
-                  {/* Duplicate Row */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-zinc-600 text-sm w-20">Дубликат</span>
-                  </div>
-
-                  {/* Related Row */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-zinc-600 text-sm w-20">Связано с</span>
-                  </div>
-
-                  {/* Expanded Suggestion Card */}
-                  <div className="bg-zinc-800/40 rounded-lg p-4 ml-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="w-5 h-5 bg-zinc-600 rounded-full" />
-                      <span className="text-zinc-300 text-sm font-medium">nan</span>
+                    <div>
+                      <p className="text-zinc-300 text-sm font-medium mb-1">Совет от Finflow</p>
+                      <p className="text-zinc-500 text-sm">Вы тратите на подписки на 40% больше, чем в прошлом месяце. Возможно, стоит пересмотреть неиспользуемые сервисы.</p>
                     </div>
-
-                    <p className="text-zinc-500 text-xs mb-2">Почему этот исполнитель</p>
-                    <p className="text-zinc-500 text-sm mb-4">
-                      Этот человек работал над похожими задачами, связанными с производительностью мобильного приложения
-                    </p>
-
-                    <p className="text-zinc-500 text-xs mb-2">Альтернативы</p>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="flex items-center gap-1.5 bg-zinc-700/50 rounded-md px-2 py-1 text-sm">
-                        <span className="w-4 h-4 bg-zinc-500 rounded-full" />
-                        <span className="text-zinc-400">yann</span>
-                      </span>
-                      <span className="flex items-center gap-1.5 bg-zinc-700/50 rounded-md px-2 py-1 text-sm">
-                        <span className="w-4 h-4 bg-zinc-500 rounded-full" />
-                        <span className="text-zinc-400">erin</span>
-                      </span>
-                    </div>
-
-                    <button className="w-full flex items-center justify-center gap-2 bg-zinc-700/50 hover:bg-zinc-600/50 text-zinc-300 text-sm py-2.5 rounded-md transition-colors">
-                      <Check className="w-4 h-4" />
-                      Принять
-                    </button>
                   </div>
                 </div>
               </div>
 
-              {/* Right column */}
               <div className="border-t border-b border-zinc-800/60 pt-12 pl-12 pb-16">
-                <h3 className="text-zinc-200 font-medium text-xl mb-3">Orbit MCP</h3>
+                <h3 className="text-zinc-200 font-medium text-xl mb-3">Прогноз расходов</h3>
                 <p className="text-zinc-500 text-base mb-8">
-                  Подключите Orbit к любимым инструментам: Cursor, Claude, ChatGPT и другим.
+                  На основе ваших привычек ИИ прогнозирует расходы до конца месяца и предупреждает о превышении бюджета.
                 </p>
 
-                {/* MCP Code Snippet */}
-                <div className="bg-zinc-900/30 border border-zinc-800/60 rounded-xl p-5 font-mono text-sm">
-                  <p className="text-zinc-700 mb-3">//mcp.orbit.app/sse</p>
-                  <div className="space-y-1 mb-6">
-                    <p>
-                      <span className="text-orange-400/70">"mcpServers"</span>
-                      <span className="text-zinc-500">: {"{"}</span>
-                    </p>
-                    <p className="pl-4">
-                      <span className="text-orange-400/70">"orbit"</span>
-                      <span className="text-zinc-500">: {"{"}</span>
-                    </p>
-                    <p className="pl-8">
-                      <span className="text-orange-400/70">"command"</span>
-                      <span className="text-zinc-500">: </span>
-                      <span className="text-green-400/70">"npx"</span>
-                    </p>
+                <div className="bg-zinc-900/60 rounded-xl border border-zinc-800/50 p-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-zinc-400 text-sm">Прогноз на апрель</span>
+                    <span className="text-emerald-400 text-sm font-medium">В пределах бюджета</span>
                   </div>
-
-                  {/* Ask Anything Input */}
-                  <div className="bg-zinc-800/40 rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="w-0.5 h-5 bg-zinc-600" />
-                      <span className="text-zinc-600">Спросите что угодно</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <button className="flex items-center gap-1.5 border border-zinc-700/60 text-zinc-500 text-sm px-3 py-1.5 rounded-full hover:bg-zinc-700/30 transition-colors">
-                        <Paperclip className="w-3.5 h-3.5" />
-                        Файл
-                      </button>
-                      <button className="flex items-center gap-1.5 border border-zinc-700/60 text-zinc-500 text-sm px-3 py-1.5 rounded-full hover:bg-zinc-700/30 transition-colors">
-                        <Globe className="w-3.5 h-3.5" />
-                        Поиск
-                      </button>
-                      <button className="flex items-center gap-1.5 border border-zinc-700/60 text-zinc-500 text-sm px-3 py-1.5 rounded-full hover:bg-zinc-700/30 transition-colors">
-                        <Lightbulb className="w-3.5 h-3.5" />
-                        Анализ
-                      </button>
-                    </div>
+                  <div className="w-full bg-zinc-800 rounded-full h-2.5 mb-2">
+                    <div className="bg-emerald-500 h-2.5 rounded-full" style={{ width: "68%" }} />
+                  </div>
+                  <div className="flex justify-between text-xs text-zinc-600">
+                    <span>Потрачено: 54 200 ₽</span>
+                    <span>Лимит: 80 000 ₽</span>
                   </div>
                 </div>
               </div>

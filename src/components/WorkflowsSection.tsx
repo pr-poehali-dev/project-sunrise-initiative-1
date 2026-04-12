@@ -1,130 +1,105 @@
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Plus, ArrowRight, MessageSquare, GitBranch, X, Puzzle, Figma } from "lucide-react"
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 const carouselCards = [
   {
     id: 1,
-    category: "Запросы клиентов",
-    title: "Создавайте то, что нужно клиентам",
+    category: "Быстрый ввод",
+    title: "Добавляйте расход за 3 секунды",
     icon: ArrowRight,
-    mockup: "intercom",
+    mockup: "quick-add",
   },
   {
     id: 2,
-    category: "Git-интеграция",
-    title: "Автоматизируйте PR и коммиты",
-    icon: Plus,
-    mockup: "github",
+    category: "Банковский импорт",
+    title: "Синхронизация с банком автоматически",
+    icon: ArrowRight,
+    mockup: "bank",
   },
   {
     id: 3,
-    category: "Orbit Mobile",
-    title: "Управляйте работой откуда угодно",
+    category: "Finflow Mobile",
+    title: "Всегда под рукой на iPhone",
     icon: ArrowRight,
     mockup: "mobile",
   },
   {
     id: 4,
-    category: "Orbit Asks",
-    title: "Превращайте запросы в задачи",
+    category: "Уведомления",
+    title: "Напоминания о лимитах бюджета",
     icon: ArrowRight,
-    mockup: "asks",
+    mockup: "notifications",
   },
   {
     id: 5,
-    category: "Интеграции Orbit",
-    title: "100+ способов расширить возможности",
+    category: "Экспорт данных",
+    title: "Скачивайте отчёты в PDF и Excel",
     icon: ArrowRight,
-    mockup: "integrations",
+    mockup: "export",
   },
   {
     id: 6,
-    category: "Интеграция с Figma",
-    title: "Связь между разработкой и дизайном",
+    category: "Семейный доступ",
+    title: "Общий бюджет для всей семьи",
     icon: ArrowRight,
-    mockup: "figma",
+    mockup: "family",
   },
   {
     id: 7,
-    category: "Для разработчиков",
-    title: "Создавайте плагины через Orbit API",
+    category: "Виджеты iOS",
+    title: "Баланс на домашнем экране",
     icon: ArrowRight,
-    mockup: "api",
+    mockup: "widgets",
   },
 ]
 
-function IntercomMockup() {
+function QuickAddMockup() {
   return (
     <div className="flex flex-col gap-3 p-4">
       <div className="flex items-center gap-2 text-xs text-zinc-400">
-        <MessageSquare className="w-3.5 h-3.5" />
-        <span>Intercom</span>
-        <span className="text-zinc-600">·</span>
-        <span className="text-zinc-500">sarah@example.com</span>
+        <Icon name="Plus" size={14} />
+        <span>Новый расход</span>
       </div>
-      <p className="text-sm text-zinc-300">
-        Нужна разбивка затрат <span className="text-zinc-500">по...</span>
-      </p>
-
       <div className="mt-2 flex items-center gap-2 bg-zinc-800/50 rounded-lg px-3 py-2">
-        <div className="w-5 h-5 bg-zinc-700 rounded flex items-center justify-center">
-          <span className="text-[10px] text-zinc-400">A</span>
-        </div>
-        <span className="text-sm text-zinc-300">ACME</span>
-        <span className="text-xs text-zinc-500">Новый запрос</span>
+        <span className="text-lg">🍔</span>
+        <span className="text-sm text-zinc-300">Бургер Кинг</span>
+        <span className="text-sm text-emerald-400 ml-auto">−459 ₽</span>
       </div>
-
       <div className="mt-1 flex items-center gap-2 bg-zinc-800/30 rounded-lg px-3 py-2">
-        <div className="w-5 h-5 bg-yellow-500/20 rounded flex items-center justify-center">
-          <span className="text-[10px] text-yellow-500">◆</span>
-        </div>
-        <span className="text-sm text-zinc-400">Мультиоблачные</span>
-        <span className="text-xs text-zinc-500">затраты</span>
+        <span className="text-lg">☕</span>
+        <span className="text-sm text-zinc-400">Кофе</span>
+        <span className="text-sm text-zinc-500 ml-auto">−280 ₽</span>
       </div>
-
       <div className="mt-1 flex items-center gap-2 px-3 py-2">
-        <div className="w-4 h-4 rounded-full border border-zinc-600" />
-        <span className="text-sm text-zinc-500">Планирование</span>
-        <div className="ml-2 flex items-center gap-1 text-xs text-zinc-600">
-          <span>Q4 2025</span>
-        </div>
+        <span className="text-lg">🚕</span>
+        <span className="text-sm text-zinc-500">Такси</span>
+        <span className="text-sm text-zinc-600 ml-auto">−520 ₽</span>
       </div>
     </div>
   )
 }
 
-function GitHubMockup() {
+function BankMockup() {
   return (
     <div className="flex flex-col gap-2 p-4">
       <div className="flex items-center gap-2 text-xs">
-        <GitBranch className="w-3.5 h-3.5 text-zinc-500" />
-        <span className="text-zinc-400">#20319</span>
-        <span className="text-zinc-500">igor/lin 15287</span>
-        <span className="text-blue-400/70">add sourc...</span>
+        <Icon name="Building2" size={14} className="text-zinc-500" />
+        <span className="text-zinc-400">Тинькофф</span>
+        <span className="text-emerald-400/70 ml-auto text-[10px]">Синхронизировано</span>
       </div>
-
       <div className="mt-3 space-y-2">
         <div className="flex items-center gap-2 text-xs">
           <span className="text-zinc-600">↗</span>
-          <span className="text-zinc-500">igor</span>
-          <span className="text-zinc-600">связал</span>
-          <span className="text-blue-400/70">igor/lin 15287</span>
-          <span className="text-zinc-600">add sou...</span>
+          <span className="text-zinc-400">14 новых транзакций</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <span className="text-zinc-600">↗</span>
-          <span className="text-zinc-500">igor</span>
-          <span className="text-zinc-600">изменил статус с В работе...</span>
+          <span className="text-zinc-400">Автокатегоризация завершена</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <span className="text-zinc-600">↗</span>
-          <span className="text-zinc-500">GitHub</span>
-          <span className="text-zinc-600">изменил статус с На ревью...</span>
-        </div>
-        <div className="flex items-center gap-2 text-xs">
-          <span className="text-zinc-600">↗</span>
-          <span className="text-zinc-500">igor</span>
-          <span className="text-zinc-600">изменил статус с Готово...</span>
+          <span className="text-zinc-400">Баланс: 145 320 ₽</span>
         </div>
       </div>
     </div>
@@ -137,10 +112,12 @@ function MobileMockup() {
       <div className="relative w-32 h-56 bg-zinc-900 rounded-2xl border border-zinc-700 overflow-hidden">
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-zinc-800 rounded-full" />
         <div className="mt-6 px-3">
-          <div className="text-[10px] text-zinc-400 mb-2">Входящие</div>
+          <div className="text-[10px] text-emerald-400 mb-2">Сегодня</div>
           <div className="space-y-1.5">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-6 bg-zinc-800/50 rounded" />
+            {["−459 ₽", "−280 ₽", "+45 000 ₽", "−1 200 ₽"].map((a, i) => (
+              <div key={i} className={`h-6 rounded flex items-center px-2 text-[9px] ${a.startsWith("+") ? "bg-emerald-900/30 text-emerald-400" : "bg-zinc-800/50 text-zinc-400"}`}>
+                {a}
+              </div>
             ))}
           </div>
         </div>
@@ -149,23 +126,44 @@ function MobileMockup() {
   )
 }
 
-function AsksMockup() {
+function NotificationsMockup() {
   return (
     <div className="flex items-center justify-center h-full">
-      <div className="w-24 h-24 rounded-2xl bg-zinc-800 flex items-center justify-center">
-        <X className="w-12 h-12 text-zinc-400" strokeWidth={2.5} />
+      <div className="bg-zinc-800/50 rounded-xl p-3 border border-zinc-700/50 w-40">
+        <div className="flex items-center gap-2 mb-2">
+          <Icon name="Bell" size={14} className="text-amber-400" />
+          <span className="text-[10px] text-zinc-300">Внимание</span>
+        </div>
+        <p className="text-[9px] text-zinc-500">Лимит «Еда» — осталось 2 600 ₽ до конца месяца</p>
       </div>
     </div>
   )
 }
 
-function IntegrationsMockup() {
+function ExportMockup() {
   return (
     <div className="flex items-center justify-center h-full">
-      <div className="grid grid-cols-2 gap-2">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="w-10 h-10 rounded-lg bg-zinc-800/50 flex items-center justify-center">
-            <Puzzle className="w-5 h-5 text-zinc-500" />
+      <div className="flex gap-3">
+        <div className="w-12 h-14 rounded-lg bg-red-900/30 border border-red-800/30 flex flex-col items-center justify-center">
+          <Icon name="FileText" size={16} className="text-red-400" />
+          <span className="text-[8px] text-red-400 mt-1">PDF</span>
+        </div>
+        <div className="w-12 h-14 rounded-lg bg-emerald-900/30 border border-emerald-800/30 flex flex-col items-center justify-center">
+          <Icon name="Table" size={16} className="text-emerald-400" />
+          <span className="text-[8px] text-emerald-400 mt-1">XLSX</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function FamilyMockup() {
+  return (
+    <div className="flex items-center justify-center h-full">
+      <div className="flex -space-x-3">
+        {["👨", "👩", "👦"].map((emoji, i) => (
+          <div key={i} className="w-10 h-10 rounded-full bg-zinc-800 border-2 border-zinc-900 flex items-center justify-center text-lg">
+            {emoji}
           </div>
         ))}
       </div>
@@ -173,21 +171,13 @@ function IntegrationsMockup() {
   )
 }
 
-function FigmaMockup() {
+function WidgetsMockup() {
   return (
     <div className="flex items-center justify-center h-full">
-      <div className="relative">
-        <Figma className="w-16 h-16 text-zinc-400" />
-      </div>
-    </div>
-  )
-}
-
-function ApiMockup() {
-  return (
-    <div className="flex items-center justify-center h-full">
-      <div className="bg-zinc-800/50 rounded-lg px-4 py-2 border border-zinc-700/50">
-        <span className="text-xs font-mono text-zinc-400">ORBIT API</span>
+      <div className="bg-zinc-800/50 rounded-2xl p-3 border border-zinc-700/50 w-36">
+        <div className="text-[10px] text-zinc-500 mb-1">Баланс</div>
+        <div className="text-sm text-white font-bold">145 320 ₽</div>
+        <div className="text-[9px] text-emerald-400 mt-1">+2 300 ₽ сегодня</div>
       </div>
     </div>
   )
@@ -195,20 +185,20 @@ function ApiMockup() {
 
 function CardMockup({ type }: { type: string }) {
   switch (type) {
-    case "intercom":
-      return <IntercomMockup />
-    case "github":
-      return <GitHubMockup />
+    case "quick-add":
+      return <QuickAddMockup />
+    case "bank":
+      return <BankMockup />
     case "mobile":
       return <MobileMockup />
-    case "asks":
-      return <AsksMockup />
-    case "integrations":
-      return <IntegrationsMockup />
-    case "figma":
-      return <FigmaMockup />
-    case "api":
-      return <ApiMockup />
+    case "notifications":
+      return <NotificationsMockup />
+    case "export":
+      return <ExportMockup />
+    case "family":
+      return <FamilyMockup />
+    case "widgets":
+      return <WidgetsMockup />
     default:
       return null
   }
@@ -227,7 +217,6 @@ export function WorkflowsSection() {
 
   return (
     <section className="relative py-24" style={{ backgroundColor: "#09090B" }}>
-      {/* Top gradient */}
       <div
         className="absolute top-0 left-0 right-0 pointer-events-none"
         style={{
@@ -237,88 +226,69 @@ export function WorkflowsSection() {
       />
 
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-16">
           <div className="lg:max-w-xl">
-            {/* Orange indicator */}
             <div className="flex items-center gap-2 mb-6">
               <div className="w-2 h-2 rounded-full bg-orange-500" />
-              <span className="text-sm text-zinc-400">Процессы и интеграции</span>
+              <span className="text-sm text-zinc-400">Возможности и удобства</span>
               <ChevronRight className="w-4 h-4 text-zinc-600" />
             </div>
 
-            {/* Heading */}
             <h2 className="text-4xl md:text-5xl font-medium text-white leading-[1.1]">
-              Работайте слаженно
+              Всё для удобного
               <br />
-              между инструментами
+              управления деньгами
             </h2>
           </div>
 
-          {/* Description */}
-          <p className="text-zinc-400 lg:max-w-sm lg:pt-12">
-            Расширьте возможности Orbit с помощью интеграций, которые синхронизируют всю команду и держат фокус на
-            главном.
-          </p>
-        </div>
-
-        {/* Carousel */}
-        <div className="relative overflow-hidden">
-          <div
-            className="flex gap-4 transition-transform duration-300 ease-out"
-            style={{ transform: `translateX(-${scrollPosition * (100 / 4)}%)` }}
-          >
-            {carouselCards.map((card) => (
-              <div key={card.id} className="flex-shrink-0 w-[calc(25%-12px)] min-w-[280px]">
-                <div className="bg-zinc-900/50 border border-zinc-800/50 rounded-xl overflow-hidden h-[340px] flex flex-col">
-                  {/* Mockup area */}
-                  <div className="flex-1 relative overflow-hidden">
-                    <CardMockup type={card.mockup} />
-                    {/* Fade overlay */}
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-                      style={{
-                        background: "linear-gradient(to top, rgba(9,9,11,0.9), transparent)",
-                      }}
-                    />
-                  </div>
-
-                  {/* Card footer - refactored for proper icon alignment */}
-                  <div className="p-4 border-t border-zinc-800/30">
-                    <div className="flex items-center justify-between gap-3">
-                      {/* Text content */}
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs text-zinc-500 mb-1">{card.category}</p>
-                        <p className="text-sm text-zinc-200 leading-snug">{card.title}</p>
-                      </div>
-                      {/* Icon button - fixed size, vertically centered */}
-                      <button className="flex-shrink-0 w-8 h-8 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-500 hover:text-zinc-300 hover:border-zinc-600 transition-colors">
-                        <card.icon className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="lg:max-w-sm lg:pt-12">
+            <p className="text-zinc-400 text-base">
+              Быстрый ввод расходов, синхронизация с банком, семейный доступ и виджеты для iOS —
+              всё, чтобы финансы были под контролем.
+            </p>
           </div>
         </div>
 
-        {/* Navigation arrows */}
-        <div className="flex items-center justify-center gap-2 mt-8">
-          <button
-            onClick={scrollLeft}
-            className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-            disabled={scrollPosition === 0}
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={scrollRight}
-            className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-            disabled={scrollPosition >= carouselCards.length - 4}
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+        <div className="relative">
+          <div className="flex gap-4 overflow-hidden">
+            <div
+              className="flex gap-4 transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${scrollPosition * 260}px)` }}
+            >
+              {carouselCards.map((card) => (
+                <div
+                  key={card.id}
+                  className="flex-shrink-0 w-[240px] bg-zinc-900/50 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-700 transition-colors group cursor-pointer"
+                >
+                  <div className="h-[180px] relative overflow-hidden bg-zinc-900/80">
+                    <CardMockup type={card.mockup} />
+                  </div>
+
+                  <div className="p-4">
+                    <div className="text-xs text-emerald-400/70 mb-1.5">{card.category}</div>
+                    <h3 className="text-sm text-zinc-200 font-medium leading-snug">{card.title}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 mt-8">
+            <button
+              onClick={scrollLeft}
+              className="w-8 h-8 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-500 hover:border-zinc-500 hover:text-zinc-300 transition-colors disabled:opacity-30"
+              disabled={scrollPosition === 0}
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="w-8 h-8 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-500 hover:border-zinc-500 hover:text-zinc-300 transition-colors disabled:opacity-30"
+              disabled={scrollPosition >= carouselCards.length - 4}
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

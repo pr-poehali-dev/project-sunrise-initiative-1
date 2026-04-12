@@ -3,7 +3,7 @@ import { ChevronRight, Plus } from "lucide-react"
 
 const featureCards = [
   {
-    title: "Планирование спринтов",
+    title: "Учёт расходов",
     illustration: (
       <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-lg">
         <svg
@@ -17,33 +17,33 @@ const featureCards = [
           <path
             opacity="0.25"
             d="M377.449 24.2664L22.1248 192.099C9.24419 198.183 1.16249 211.29 1.51081 225.531L10.925 610.428C11.5763 637.054 39.9132 653.778 63.5378 641.48L409.448 461.403C421.355 455.204 428.824 442.895 428.824 429.471V56.8179C428.824 30.407 401.33 12.9865 377.449 24.2664Z"
-            fill="#2C2C2C"
+            fill="#064e3b"
             fillOpacity="0.8"
-            stroke="#424242"
+            stroke="#10b981"
             strokeWidth="3"
           />
           <path
             opacity="0.25"
             d="M497.594 24.2664L142.269 192.099C129.389 198.183 121.307 211.29 121.655 225.531L131.07 610.428C131.721 637.054 160.058 653.778 183.682 641.48L529.592 461.403C541.5 455.204 548.969 442.895 548.969 429.471V56.8179C548.969 30.407 521.475 12.9865 497.594 24.2664Z"
-            fill="#2C2C2C"
+            fill="#064e3b"
             fillOpacity="0.8"
-            stroke="#424242"
+            stroke="#10b981"
             strokeWidth="3"
           />
           <path
             opacity="0.25"
             d="M617.738 24.2664L262.414 192.099C249.533 198.183 241.451 211.29 241.8 225.531L251.214 610.428C251.865 637.054 280.202 653.778 303.827 641.48L649.737 461.403C661.644 455.204 669.113 442.895 669.113 429.471V56.8179C669.113 30.407 641.619 12.9865 617.738 24.2664Z"
-            fill="#2C2C2C"
+            fill="#064e3b"
             fillOpacity="0.8"
-            stroke="#424242"
+            stroke="#10b981"
             strokeWidth="3"
           />
           <path
             opacity="0.25"
             d="M737.883 24.2664L382.558 192.099C369.678 198.183 361.596 211.29 361.944 225.531L371.358 610.428C372.01 637.054 400.347 653.778 423.971 641.48L769.881 461.403C781.789 455.204 789.258 442.895 789.258 429.471V56.8179C789.258 30.407 761.764 12.9865 737.883 24.2664Z"
-            fill="#2C2C2C"
+            fill="#064e3b"
             fillOpacity="0.8"
-            stroke="#424242"
+            stroke="#10b981"
             strokeWidth="3"
           />
         </svg>
@@ -51,12 +51,12 @@ const featureCards = [
     ),
   },
   {
-    title: "Управление итерациями",
+    title: "Планирование бюджета",
     illustration: (
       <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
         <img
           src="/images/speed-lines.png"
-          alt="Иллюстрация скорости"
+          alt="Планирование бюджета"
           className="w-full h-full object-cover"
           style={{ filter: "invert(1)" }}
         />
@@ -64,12 +64,12 @@ const featureCards = [
     ),
   },
   {
-    title: "Когда важна точность",
+    title: "Аналитика и отчёты",
     illustration: (
       <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
         <img
           src="/images/precision-workflow.png"
-          alt="Иллюстрация точного процесса"
+          alt="Точная аналитика"
           className="w-full h-full object-cover"
           style={{ filter: "invert(1)" }}
         />
@@ -90,7 +90,6 @@ export function FeatureCardsSection() {
       />
       <div className="w-full flex justify-center px-6">
         <div className="w-full max-w-5xl">
-          {/* Header row */}
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -105,7 +104,7 @@ export function FeatureCardsSection() {
                 lineHeight: 1.1,
               }}
             >
-              Создан для современных команд
+              Три инструмента для ваших финансов
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -115,16 +114,15 @@ export function FeatureCardsSection() {
               className="max-w-md"
             >
               <p className="text-zinc-400 leading-relaxed">
-                Orbit основан на практиках и принципах, которые отличают лучшие продуктовые команды:
-                фокус на главном, быстрое исполнение и внимание к качеству.{" "}
-                <a href="#" className="text-white inline-flex items-center gap-1 hover:underline">
-                  Перейти на Orbit <ChevronRight className="w-4 h-4" />
+                Finflow помогает видеть, куда уходят деньги, ставить финансовые цели
+                и принимать осознанные решения каждый день.{" "}
+                <a href="#" className="text-emerald-400 inline-flex items-center gap-1 hover:underline">
+                  Начать бесплатно <ChevronRight className="w-4 h-4" />
                 </a>
               </p>
             </motion.div>
           </div>
 
-          {/* Feature cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {featureCards.map((card, index) => (
               <motion.div
@@ -155,7 +153,7 @@ export function FeatureCardsSection() {
                   style={{ padding: "0 24px 40px", gap: "16px" }}
                 >
                   <h3 className="text-white font-medium text-lg leading-tight">{card.title}</h3>
-                  <div className="w-8 h-8 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-500 group-hover:border-zinc-500 group-hover:text-zinc-300 transition-colors flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-500 group-hover:border-emerald-500 group-hover:text-emerald-400 transition-colors flex-shrink-0">
                     <Plus className="w-4 h-4" />
                   </div>
                 </div>
