@@ -1,0 +1,42 @@
+{
+  "tests": [
+    {
+      "name": "Получить категории",
+      "method": "GET",
+      "path": "/?type=categories",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Получить список расходов",
+      "method": "GET",
+      "path": "/?type=expenses",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Получить сводку по бюджету",
+      "method": "GET",
+      "path": "/?type=summary",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Добавить расход",
+      "method": "POST",
+      "path": "/",
+      "body": {"amount": 459, "category_id": 1, "description": "Бургер"},
+      "expectedStatus": 200
+    },
+    {
+      "name": "POST без данных",
+      "method": "POST",
+      "path": "/",
+      "body": {},
+      "expectedStatus": 400
+    },
+    {
+      "name": "CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "name": "Finflow — финансовый трекер",
   "short_name": "Finflow",
   "description": "Учёт расходов, планирование бюджета и финансовые цели с ИИ-подсказками",
-  "start_url": "/",
+  "start_url": "/app",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
@@ -35,13 +35,13 @@
       "name": "Добавить расход",
       "short_name": "Расход",
       "description": "Быстро добавить новую трату",
-      "url": "/?action=add-expense"
+      "url": "/app?action=add-expense"
     },
     {
       "name": "Мой бюджет",
       "short_name": "Бюджет",
       "description": "Посмотреть бюджет на месяц",
-      "url": "/?view=budget"
+      "url": "/app?view=budget"
     }
   ]
 }
